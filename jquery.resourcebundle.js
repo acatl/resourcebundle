@@ -1,7 +1,7 @@
 /*
  * ResourceBundle
  *
- * Copyright 2010, Acatl Pacheco
+ * Copyright 2011, Acatl Pacheco
  * Licensed under the MIT License.
  *
  */
