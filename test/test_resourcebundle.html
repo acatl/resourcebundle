@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js">
+		</script>
+		<link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js">
+		</script>
+		
+		<!-- resourcebundle -->
+		<script type="text/javascript" src="../jquery.resourcebundle.js"></script>
+		<script type="text/javascript">
+		
+			$(function() {
+				module("resourcebundle unit test");
+				
+				test("main", function(){
+					// get resourcebundle from page with element id "resources"
+					var resources = $.getResourceBundle("resources");
+					
+					// check if the ResourceBundle was correctly instantiated
+					equal(resources != null,true, "ResourceBundle instance created");
+					
+					// attempt to get resource with key "message1"
+					equal(resources.getString("message1"),"Hi this is a message", "retrive resource string from bundle");
+					
+					// attempt to get resource with invalid key
+					equal(resources.getString("message4"),undefined, "retrive invalid resource");
+					
+				});
+			});
+		
+		</script>
+		
+		<!-- resource bundle -->
+		<script id="resources" type="text/plain">
+			message1=Hi this is a message
+			message2=Another message
+		</script>
+		
+	</head>
+	<body>
+		<h1 id="qunit-header">
+			ResourceBundle Test
+		</h1>
+		<h2 id="qunit-banner">
+		</h2>
+		<div id="qunit-testrunner-toolbar">
+		</div>
+		<h2 id="qunit-userAgent">
+		</h2>
+		<ol id="qunit-tests">
+		</ol>
+		<div id="qunit-fixture">
+			test markup, will be hidden
+			<div id="testContainer">
+					<span id="childSpan" class="child" data-state-test='{"removeClass":"child"}'></span>
+			</div>
+		</div>
+	</body>
+</html>
